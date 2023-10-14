@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+textarea { 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    margin: 80px 0px 0px 0px;
+    /* overflow-x: hidden; */
+    padding: 0px;
+    position: static;
+    width: 100%;
+}
+/* adjust scrollbar */
+::-webkit-scrollbar-track{
+    position: absolute;
+    background: #2e3338;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: #202225;
+    border-radius: 5px;
+}
+/* ------------------- BEGIN HEADER ------------------- */
+.header_Menu{
+    background-color: #111111b9;
+    display: flex;
+    font-size: 15px !important;
+    font-family: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
+}
+.header_Menu .menu_First_Part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 70%;
+    line-height: 60px;
+}
+.header_Menu .menu_List, span{
+    position: relative;
+    display: inline;
+    color: rgba(255, 255, 255, 0.888);
+    margin: 0 20px;
+    height: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.header_Menu span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.header_Menu li span{
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 0.888);
+}
+.header_Menu .menu_List::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color: rgb(104, 220, 255);
+}
+.header_Menu li:hover, span:hover {
+    color: rgb(104, 220, 255);
+}
+.header_Menu .menu_List:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+/* ---------------------- List Content ---------------------- */
+.header_Menu .list_Content {
+    display: none; /* Đặt trạng thái ẩn ban đầu */
+    position: absolute;
+    background-color: #111111b9;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.header_Menu .menu_List:hover .list_Content {
+    display: flex; /* Khi hover vào mục menu, hiển thị list_Content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.header_Menu .list_Content li {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    width: 100%;
+}
+.header_Menu .list_Content li:hover {
+    color: rgb(104, 220, 255);
+}
+/* ---------------------- Search Box ---------------------- */
+.header_Menu .menu_End_Part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 30%;
+    line-height: 60px;
+}
+#search_Box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search_Box #search_Text {
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 10px 15px;
+    opacity: 0;
+    visibility: hidden; 
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: opacity 0.5s, transform 0.5s, visibility 0.5s; /* Thêm transition effect cho visibility */
+}
+#search_Box:hover #search_Text {
+    opacity: 1;
+    visibility: visible; 
+    transform: scaleX(1);
+    transform-origin: left;
+}
+#search_Box.active #search_Text {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1);
+}
+#search_Box #search_Btn {
+    border: none;
+    padding: 15px 20px;
+    background: none;
+    color: rgba(255, 255, 255, 0.888);
+    font-weight: 800;
+    font-size: 18px;
+    transition: color 0.5s; /* Thêm transition effect cho color */
+}
+#search_Box:hover #search_Btn {
+    color: rgb(104, 220, 255);
+}
+/* ---------------------- END HEADER ---------------------- */
