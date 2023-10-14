@@ -22,7 +22,6 @@ textarea {
 
 body{
     margin: 80px 0px 0px 0px;
-    /* overflow-x: hidden; */
     padding: 0px;
     position: static;
     width: 100%;
@@ -41,7 +40,7 @@ body{
 }
 /* ------------------- BEGIN HEADER ------------------- */
 .header_Menu{
-    background-color: #111111b9;
+    background-color: #2a2a2a;
     display: flex;
     font-size: 15px !important;
     font-family: bold;
@@ -52,6 +51,8 @@ body{
     height: 60px;
     width: 100%;
     justify-content: space-between;
+    overflow: hidden;
+    z-index: 1;
 }
 .header_Menu .menu_First_Part{
     display: flex;
@@ -180,3 +181,51 @@ body{
     color: rgb(104, 220, 255);
 }
 /* ---------------------- END HEADER ---------------------- */
+/* ---------------------- BEGIN SLIDESHOW ---------------------- */
+/* Style for slideshow */
+.slideshow_container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    top: -20px;
+}
+
+.list_images {
+    display: flex;
+    transition: transform 0.5s;
+}
+
+.list_images div {
+    flex-shrink: 0;
+    width: 100%;
+    height: 90%;
+}
+
+/* Arrow styles */
+.arrow_images {
+    position: absolute;
+    top: 44%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.control {
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Hide controls on small screens */
+@media screen and (max-width: 1000px) {
+  .control {
+    display: none;
+  }
+}
+
+/* ---------------------- END SLIDESHOW ---------------------- */
+
