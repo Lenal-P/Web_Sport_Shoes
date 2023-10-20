@@ -28,11 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const listImages = document.querySelector('.list_images');
     const prevBtn = document.querySelector('.control.prev');
     const nextBtn = document.querySelector('.control.next');
+    const dots = document.querySelectorAll('.dots_container .dot_control');
     let currentIndex = 0;
 
     function showSlide(index) {
         listImages.style.transform = `translateX(-${index * 100}%)`;
         currentIndex = index;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
     }
 
     function showNextSlide() {
@@ -55,5 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
     prevBtn.addEventListener('click', showPrevSlide);
 
     setInterval(showNextSlide, 5000);
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showSlide(i);
+        });
+    });
 });
+
 /* ---------------------- END SLIDESHOW ---------------------- */
