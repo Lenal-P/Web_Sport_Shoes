@@ -1,4 +1,4 @@
-// Hiển thị ô search khi đang gõ
+/* ---------------------- BEGIN SEARCH ---------------------- */
 document.addEventListener('DOMContentLoaded', function() {
     const searchBox = document.getElementById('search_Box');
     const searchText = document.getElementById('search_Text');
@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
+/* ---------------------- END SEARCH ---------------------- */
 /* ---------------------- BEGIN SLIDESHOW ---------------------- */
 document.addEventListener('DOMContentLoaded', function() {
     const listImages = document.querySelector('.list_images');
@@ -67,5 +66,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 /* ---------------------- END SLIDESHOW ---------------------- */
+/* ---------------------- BEGIN CONTENT ---------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+    const productImages = document.querySelector('.product_images');
+    const prevArrow = document.querySelector('.arrow.prev');
+    const nextArrow = document.querySelector('.arrow.next');
+    const scrollAmount = 250;
+
+    prevArrow.addEventListener('click', function() {
+        productImages.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+
+    nextArrow.addEventListener('click', function() {
+        productImages.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+});
+/* ---------------------- END CONTENT ---------------------- */
+
