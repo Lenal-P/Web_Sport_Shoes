@@ -45,7 +45,7 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    height: 10%;
+    height: 75px;
     width: 100%;
     z-index: 1000;
     font-weight: bold;
@@ -65,6 +65,7 @@ body{
 .header_Menu .menu_List{
     position: relative;
     display: inline-block;
+    left: 4vw;
     margin: 0 20px;
     height: 100%;
     cursor: pointer;
@@ -104,6 +105,21 @@ body{
 .header_Menu .menu_List:hover::after{
     transform: scaleX(1);
     transform-origin: left;
+}
+/* ----------------- Icon ------------------ */
+.icon_web {
+    position: absolute;
+    height: 100%;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    left: 2vw;
+}
+.icon_web img {
+    display: block;
+    height: 70px;
+    align-items: center;
+    cursor: pointer;
 }
 /* ---------------------- List Content ---------------------- */
 .header_Menu .list_Content {
@@ -148,14 +164,14 @@ body{
     opacity: 0;
     visibility: hidden; 
     transform: scaleX(0);
-    transform-origin: right;
+    transform-origin: left;
     transition: opacity 0.5s, transform 0.5s, visibility 0.5s; /* Thêm transition effect cho visibility */
 }
 #search_Box:hover #search_Text {
     opacity: 1;
     visibility: visible; 
     transform: scaleX(1);
-    transform-origin: left;
+    transform-origin: right;
 }
 #search_Box.active #search_Text {
     opacity: 1;
@@ -242,9 +258,8 @@ body{
     align-items: center;
     text-align: center;
     position: absolute;
-    padding: 50px 20px;
     width: 100%;
-    height: 200vh;
+    height: 2000px;
 }
 /* ---------------------- Chia phần content ---------------------- */
 .content_hot {
@@ -255,15 +270,24 @@ body{
 }
 .content_category{
     position: absolute;
-    top: 30%;
+    top: 55vh;
+    text-align: left; 
+    width: 90vw;
+    height: 60vh;
 }
 .content_brand{
     position: absolute;
-    top: 60%;
+    bottom: 85vh;
+    text-align: center; 
+    width: 90vw;
+    height: 60vh;
 }
 .content_position{
     position: absolute;
-    top: 90%;
+    bottom: 5vh;
+    text-align: center; 
+    width: 90vw;
+    height: 60vh;
 }
 /* ---------------------- Sản phẩm hot ---------------------- */
 .product_title p {
@@ -278,7 +302,6 @@ body{
     box-shadow: none;
     border: none;
     max-width: 100%;
-    cursor: pointer;
     z-index: 2;
 }
 .product_item {
@@ -286,12 +309,20 @@ body{
     overflow: hidden;
     flex: 0 0 calc(20% - 20px);
     margin-right: 20px;
+    cursor: pointer;
+    transition: filter 0.5s;
+    &:hover .detail_button{
+        transform: translateX(-50%) translateY(0%);
+    }
+    &:hover .product_nameShoes p{
+        color: #f23f2f;
+    }
 }
 .product_images img {
     width: 100%;
     max-width: 200px;
 }
-.product_name p {
+.product_nameShoes p {
     font-size: 12px;
     margin: 10px 0;
     color: #666;
@@ -317,18 +348,18 @@ body{
 }
 .arrow_content {
     position: absolute;
-    top: 40%;
-    width: 95%;
+    top: 50%;
+    width: 101%;
     display: flex;
-    left: 2%;
+    left: -1%;
     justify-content: space-between;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 10;
 }
 .arrow {
     cursor: pointer;
     padding: 10px;
-    color: rgb(180, 180, 180);
+    color: rgba(0, 0, 0, 0.2);
     font-size: 30px;
 }
 .detail_button {
@@ -348,77 +379,127 @@ body{
     text-transform: uppercase;
     z-index: 10;
 }
-.product_item:hover .detail_button {
-    transform: translateX(-50%) translateY(0%);
-}
 /* ---------------------- Bạn đang tìm ---------------------- */
-.content_category {}
-
 .category_images {
     display: flex;
-    flex-direction: row;
+    position: absolute;
     justify-content: center;
     align-items: center;
     width: 100%;
-    overflow-x: hidden; 
+    height: 100%;
 }
-
 .category_item {
-    flex: 0 0 calc(33.33% - 20px); /* 3 cột, cách nhau 20px */
-    margin-right: 20px;
-}
-
-.category_item img {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    max-width: 200px;
-    border: 1px solid #ccc; /* Đường viền cho hình ảnh (tuỳ chọn) */
+    height: 100%;
+    gap: 2%;
+}
+.category_item img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: filter 1s;
+    overflow: hidden;
+}
+.category_item .content_hover {
+    position: relative;
+    cursor: pointer;
+    width: 30%;
+}
+.product_name {
+    margin: 5vh 0;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+.product_name h8 {
+    font-weight: bold;
+}
+.product_name p {
+    color: #ccc;
+}
+.product_title {
+    text-align: center;
+}
+.content_hover:hover{
+    position: relative;
+    z-index: 2;
+    & img{
+        filter: grayscale(100%);
+    }
+    & h8{
+        color: rgb(104, 220, 255);
+    }
 }
 /* ---------------------- Thương hiệu ---------------------- */
-.content_brand {
-    text-align: center;
-    margin-bottom: 30px; /* Để tạo khoảng cách giữa các phần content */
-}
-
 .brand_images {
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    overflow-x: hidden; /* Ẩn phần tràn ra ngoài */
-}
-
-.brand_item {
-    flex: 0 0 calc(33.33% - 20px); /* 3 cột, cách nhau 20px */
-    margin-right: 20px;
-}
-
-.brand_item img {
+    flex-direction: column;
     width: 100%;
-    max-width: 200px;
-    border: 1px solid #ccc; /* Đường viền cho hình ảnh (tuỳ chọn) */
+    height: 100%;
 }
-/* ---------------------- Chọn giày theo vị trí ---------------------- */
-.content_position {
-    text-align: center;
-    margin-bottom: 30px; /* Để tạo khoảng cách giữa các phần content */
-}
-
-.position_images {
+.brand_item {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    overflow-x: hidden; /* Ẩn phần tràn ra ngoài */
-}
-
-.position_item {
-    flex: 0 0 calc(33.33% - 20px); /* 3 cột, cách nhau 20px */
-    margin-right: 20px;
-}
-
-.position_item img {
+    flex-direction: row;
     width: 100%;
-    max-width: 200px;
-    border: 1px solid #ccc; /* Đường viền cho hình ảnh (tuỳ chọn) */
+    height: 100%;
+    gap: 2vh;
+}
+
+.content_brand .content_hover {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+}
+.brand_item img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: filter 1s;
+    overflow: hidden;
 }
   /* ---------------------- END CONTENT ---------------------- */
+  /* ---------------------- BEGIN FOOTER ---------------------- */
+  .footer{
+    position: absolute;
+    height: 2900px;
+  }
+  .footer_container{
+    position: absolute;
+    bottom: 0;
+    background-color: #111111;
+    border-top: 2px #2e3338 solid;
+    color: #737373;
+    height: 250px;
+    width: 100vw;
+    text-align: center;
+    background: linear-gradient(to bottom, #2a2a2a 50%, #111111 100%);
+    & h1{
+        display: inline-block;
+        margin: 30px;
+        cursor: pointer;
+        color: #ffffff;
+        &:hover{
+            color: #ffffff;
+        }
+    }
+    & i{
+        margin: 0 20px;
+        margin-top: 40px;
+        display: inline-block;
+        cursor: pointer;
+        color: #737373;
+        &:hover{
+            color: rgb(11, 196, 226);
+        }
+    } 
+} 
+  /* ---------------------- END FOOTER ---------------------- */
