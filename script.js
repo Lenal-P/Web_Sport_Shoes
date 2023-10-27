@@ -1,24 +1,27 @@
 /* ---------------------- BEGIN SEARCH ---------------------- */
 document.addEventListener('DOMContentLoaded', function() {
     const searchBox = document.getElementById('search_Box');
-    const searchText = document.getElementById('search_Text');
+    const searchButton = document.getElementById('search_Btn');
 
-    searchBox.addEventListener('mouseenter', function() {
-        this.classList.add('active');
-    });
-
-    searchBox.addEventListener('mouseleave', function() {
-        if (searchText.value === '') {
-            this.classList.remove('active');
-        }
-    });
-
-    searchText.addEventListener('input', function() {
-        if (this.value.length > 0) {
-            searchBox.classList.add('active');
+    searchBox.addEventListener('input', function() {
+        const searchValue = this.value;
+        if (searchValue && searchValue.trim() === '') {
+            searchButton.style.color = 'black';
         } else {
-            searchBox.classList.remove('active');
+            searchButton.style.color = 'rgb(104, 220, 255)';
         }
+    });
+    // ------------------------------------------------------------------------------------
+    searchBox.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (chẳng hạn như gửi biểu mẫu)
+            // Thực hiện tìm kiếm ở đây
+        }
+    });
+
+    searchButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của nút
+        // Thực hiện tìm kiếm ở đây
     });
 });
 /* ---------------------- END SEARCH ---------------------- */
