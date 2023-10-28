@@ -121,6 +121,9 @@ body{
     align-items: center;
     cursor: pointer;
 }
+.rps_MenuBtn {
+    display: none;
+}
 /* ---------------------- List Content ---------------------- */
 .header_Menu .list_Content {
     display: none; /* Đặt trạng thái ẩn ban đầu */
