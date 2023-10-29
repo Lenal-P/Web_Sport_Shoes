@@ -75,21 +75,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const productImages = document.querySelector('.product_images');
     const prevArrow = document.querySelector('.arrow.prev');
     const nextArrow = document.querySelector('.arrow.next');
+
     const scrollAmount = 250;
+    const scrollAmountMobile = 324;
 
-    prevArrow.addEventListener('click', function() {
-        productImages.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+    function handleArrowClick() {
+        let currentScrollAmount = window.innerWidth < 740 ? scrollAmountMobile : scrollAmount;
+        let scrollDirection = this.classList.contains('prev') ? -currentScrollAmount : currentScrollAmount;
 
-    nextArrow.addEventListener('click', function() {
-        productImages.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    });
+        let newPosition = productImages.scrollLeft + scrollDirection;
+
+        if (newPosition >= productImages.scrollWidth) {
+            productImages.scrollLeft = 0;
+        } else if (newPosition < 0) {
+            productImages.scrollLeft = productImages.scrollWidth - productImages.clientWidth;
+        } else {
+            productImages.scrollBy({
+                left: scrollDirection,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    prevArrow.addEventListener('click', handleArrowClick);
+    nextArrow.addEventListener('click', handleArrowClick);
 });
+
 /* ---------------------- END CONTENT ---------------------- */
 

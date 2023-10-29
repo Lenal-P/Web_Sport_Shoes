@@ -23,9 +23,9 @@
                         <img src="./assets/img/favicon-removebg-preview.png" alt="icon">
                     </a>
                 </div>
-                <div class="rps_MenuBtn">
+                <label for="nav_Mobile_Input" class="rps_MenuBtn">
                     <i class="fa-solid fa-bars"></i>
-                </div>
+                </label>
                 <li class="menu_List">Trang chủ</li>
                 <li class="menu_List">Loại giày bóng đá
                     <span class="material-symbols-outlined">keyboard_arrow_down</span>
@@ -72,6 +72,44 @@
                 </a>
             </div>
         </div>
+
+        <!-- Responsive -->
+        <input type="checkbox" hidden name="" class="nav_Input" id ="nav_Mobile_Input">
+        <label for="nav_Mobile_Input" class="nav_Overlay"></label>
+        
+        <nav class="nav_Mobile">
+            <label for="nav_Mobile_Input" class="nav_Mobile_Close">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </label>
+            <ul class="nav_Mobile_List">
+                <p class="nav_Mobile_Menu"> Menu </p>
+                <li>
+                    <a href="index.html" class="nav_Mobile_Link">Trang chủ</a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="" class="nav_Mobile_Link">Loại giày bóng đá
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="" class="nav_Mobile_Link">Thương hiệu
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="" class="nav_Mobile_Link">Phụ kiện
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="" class="nav_Mobile_Link">Hướng dẫn</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <!-- ------------ END HEADER ------------ -->
         
@@ -316,7 +354,7 @@
                     <div class="content_hover">
                         <img src="./assets/img/position_banner_2.jpg" style="width:100%">
                         <div class="product_name">
-                            <h8>Tiền vệ trung tâm</h8>
+                            <h8>Tiền vệ trụ</h8>
                             <p>Kiểm soát, chuyền bóng</p>
                         </div>
                     </div>

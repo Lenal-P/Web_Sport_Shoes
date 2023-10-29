@@ -21,6 +21,8 @@ textarea {
 body{
     margin: 80px 0px 0px 0px;
     z-index: -100000;
+    height: auto;
+    width: auto;
 }
 /* adjust scrollbar */
 ::-webkit-scrollbar-track{
@@ -47,7 +49,7 @@ body{
     right: 0;
     height: 75px;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
     font-weight: bold;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.888);
@@ -163,6 +165,7 @@ body{
     background: #fff;
     border-radius: 15px;
     margin-top: 1rem;
+    height: max-content;
 }
 .rps_Search_Box{
     position: relative;;
@@ -183,12 +186,14 @@ body{
 }
 #search_Box #search_Btn {
     border: none;
+    margin: auto;
     padding: 10px 15px;
     font-weight: 800;
     font-size: 14px;
     transition: color 0.5s;
     background-color: #fff;
     border-radius: 50%;
+    color: #111111;
 }
 #search_Box:hover #search_Btn {
     color: rgb(104, 220, 255);
@@ -366,7 +371,7 @@ body{
 .arrow {
     cursor: pointer;
     padding: 10px;
-    color: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.4);
     font-size: 30px;
 }
 .detail_button {
@@ -478,22 +483,23 @@ body{
   /* ---------------------- END CONTENT ---------------------- */
   /* ---------------------- BEGIN FOOTER ---------------------- */
   .footer{
-    position: absolute;
-    height: 2900px;
+    margin-top: 2700px;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
   }
   .footer_container{
-    position: absolute;
-    bottom: 0;
     background-color: #111111;
     border-top: 2px #2e3338 solid;
     color: #737373;
-    height: 250px;
-    width: 100vw;
+    height: 300px;
+    width: 100%;
     text-align: center;
     background: linear-gradient(to bottom, #2a2a2a 50%, #111111 100%);
     & h1{
         display: inline-block;
-        margin: 30px;
+        margin-top: 70px;
+        margin-bottom: 30px;
         cursor: pointer;
         color: #ffffff;
         &:hover{
@@ -514,12 +520,15 @@ body{
   /* ---------------------- END FOOTER ---------------------- */
 
 /* Tablet: width >= 740 and width < 1024px */
-@media (min-width: 740px) {
+@media only screen and (min-width: 740px) and (max-width: 1024px){
     
 }
 
 /* Mobile: width <740px*/
-@media (max-width: 1024px) {
+@media only screen and (max-width: 740px) {
+    body {
+        height: 80vh;
+    }
     .header_Menu {
         height: 15vh;
         width: 100vw;
@@ -530,14 +539,14 @@ body{
         z-index: -1;
     }
     .rps_MenuBtn {
-        width: 30%;
-        height: 30%;
         display: flex;
         position: relative;
+        top: -10%;
         padding: 10%;
-        margin-bottom: 20%;
         left: -40%;
-        z-index: 1;
+        z-index: 10000;
+        cursor: pointer;
+        background: none;
     }
     .header_Menu .menu_List {
         display: none;
@@ -574,6 +583,7 @@ body{
         width: 70%;
         bottom: 2%;
         margin: 0 5rem;
+        z-index: 10;
     }
     #search_Box {
         height: max-content;
@@ -586,6 +596,91 @@ body{
         top: 15%;
         width: 100%;
     }
+    .nav_Overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 1000;
+        display: none;
+        animation: fadeIn linear 0.2s;
+    }
+    .nav_Mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 250px;
+        max-width: 100%;
+        background-color: #fff;
+        z-index: 1001;
+        transform: translate(-100%);
+        transition: all linear 0.2s;
+        opacity: 0;
+    }
+    .nav_Mobile_List {
+        margin: 70px 0 0 20px;
+    }
+    .nav_Mobile_Link {
+        text-transform: uppercase;
+        color: rgba(30, 30, 30, 0.8);
+        font-size: 14px;
+        width: 100vw;
+    }
+    .nav_Mobile_List li {
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1002;
+    }
+    .nav_Mobile_List hr {
+        margin-top: 5px;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    .nav_Mobile_Link i{
+        color: rgba(0, 0, 0, 0.2);
+        position: fixed;
+        right: 20px;
+        margin-top: 6px;
+    }
+    .nav_Mobile_Close{
+        width: 20px;
+        font-size: 20px;
+        color: #666;
+        position: absolute;
+        top: 0.8rem;
+        right: 1rem;
+    }
+    .nav_Mobile_Menu{
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding: 20px;
+        font-size: 12px;
+        text-align: center;
+        color: #6666667f;
+        z-index: -1;
+    }
+    .nav_Input:checked ~ .nav_Overlay {
+        display: block;
+    }
+    .nav_Input:checked ~ .nav_Mobile {
+        transform: translate(0%);
+        opacity: 1;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    /* ------------------------------------ */
     .slideshow_container .list_images {
         width: 100%;
     }
@@ -601,8 +696,24 @@ body{
     }
     .content_container {
         top: 40%;
-        height: 1400px;
+        height: 120vh;
     }
+    /* ------------------ Chia -------------------- */
+    .content_hot {
+        top: 0;
+    }
+    .content_category{
+        top: 40%;
+        height: 50vh;
+    }
+    .content_brand{
+        top: 80%;
+    }
+    .content_position{
+        top: 130%;
+        height: 90vh;
+    }
+    /* -------------------------------------------- */
     .product_item {
         flex: 0 0 calc(50% - 20px);
         gap: 30px;
@@ -617,6 +728,7 @@ body{
         display: flex;
         overflow: hidden;
         position: absolute;
+        height: min-content;
     }
     .category_item {
         width: 90vw;
@@ -627,17 +739,30 @@ body{
         flex-wrap: wrap;
         margin-bottom: 20px;
     }
-    .product_name p{
+    .product_name p {
         display: none;
     }
     .brand_images {
         width: 90vw;
         overflow: hidden;
+        height: min-content;
     }
     .brand_item {
         width: 100%;
+        height: min-content;
     }
-    .content_hover {
-        flex: 0 0 50%;
+    .brand_item .content_hover {
+        flex: 0 0 100%;
+        height: 160px;
+    }
+    .footer {
+        margin-top: 240vh;
+    }
+    .footer_container{
+        height: 300px;
+        font-size: 15px;
+    }
+    .footer_container h1 {
+        margin-top: 60px;
     }
 }
