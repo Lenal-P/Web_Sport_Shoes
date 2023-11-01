@@ -100,4 +100,65 @@ document.addEventListener('DOMContentLoaded', function() {
     nextArrow.addEventListener('click', handleArrowClick);
 });
 /* ---------------------- END CONTENT ---------------------- */
+/* ---------------------- BEGIN CART ---------------------- */
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy các phần tử DOM cần thiết
+    const checkboxes = document.querySelectorAll('.checkbox');
+    const quantityInputs = document.querySelectorAll('.quantity');
+    const minusButtons = document.querySelectorAll('.btn_Quantity.minus');
+    const plusButtons = document.querySelectorAll('.btn_Quantity.plus');
+    const totalPrices = document.querySelectorAll('.total_price');
+    const removeButtons = document.querySelectorAll('.remove_item');
+    const summaryTotal = document.querySelector('.cart_summary .total_price');
 
+    // Cập nhật tổng tiền
+    function updateTotalPrice() {
+        let totalPrice = 0;
+        totalPrices.forEach(price => {
+            totalPrice += parseFloat(price.textContent.replace('đ', '').replace('.', ''));
+        });
+        summaryTotal.textContent = totalPrice.toLocaleString() + 'đ';
+    }
+
+    // Bắt sự kiện khi checkbox thay đổi
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener('change', function() {
+            let isChecked = this.checked;
+            let price = parseFloat(totalPrices[index].textContent.replace('đ', '').replace('.', ''));
+            totalPrices[index].textContent = isChecked ? price.toLocaleString() + 'đ' : '0đ';
+            updateTotalPrice();
+        });
+    });
+
+    // Bắt sự kiện khi nút trừ được click
+    minusButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            let quantity = parseInt(quantityInputs[index].textContent);
+            if (quantity > 1) {
+                quantityInputs[index].textContent = quantity - 1;
+                totalPrices[index].textContent = (quantity - 1) * parseFloat(totalPrices[index].textContent.replace('đ', '').replace('.', '')) + 'đ';
+                updateTotalPrice();
+            }
+        });
+    });
+
+    // Bắt sự kiện khi nút cộng được click
+    plusButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            let quantity = parseInt(quantityInputs[index].textContent);
+            quantityInputs[index].textContent = quantity + 1;
+            totalPrices[index].textContent = (quantity + 1) * parseFloat(totalPrices[index].textContent.replace('đ', '').replace('.', '')) + 'đ';
+            updateTotalPrice();
+        });
+    });
+
+    // Bắt sự kiện khi nút xóa được click
+    removeButtons.forEach((button, index) => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.closest('tr').remove();
+            updateTotalPrice();
+        });
+    });
+});
+/* ---------------------- END CART ---------------------- */

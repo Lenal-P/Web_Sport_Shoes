@@ -21,16 +21,166 @@ textarea {
 body{
     margin: 80px 0px 0px 0px;
     z-index: -100000;
+    background-color: #f8f8fc;
 }
 /* adjust scrollbar */
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     position: absolute;
     background: #2e3338;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 10px;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: #202225;
     border-radius: 5px;
+}
+
+/* ----------------Giỏ hàng ---------------- */
+.cart_pages {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 15px;
+    z-index: -1;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    z-index: 1;
+}
+
+th {
+    padding: 10px;
+    text-align: center;
+    z-index: 1;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 1%;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 50%;
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 15%;
+}
+
+th:nth-child(4), td:nth-child(4) {
+    width: 20%;
+}
+
+th:nth-child(4), td:nth-child(5) {
+    width: 15%;
+}
+
+.cart_info {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: left;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+    font-weight: 500;
+    margin: 5% 1%;
+}
+
+.cart_info img{
+    max-height: 10%;
+    max-width: 10%;
+}
+
+.cart_info small{
+    color: #f23f2f;
+    font-weight: 400;
+}
+
+.cart_pages .quantity_table {
+    height: 30px;
+    width: 50%;
+    color: black;
+    background-color: #f8f8fc;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #bababb;
+    margin: 0 25%;
+}
+
+.quantity_table a {
+    color: rgb(104, 220, 255);
+    font-size: 14px;
+}
+
+.cart_pages .btn_Quantity{
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 0 5%;
+    background-color: transparent;
+}
+
+.cart_pages h2 {
+    margin-bottom: 20px;
+}
+
+.cart_summary {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #fe8e06;
+    color: black;
+    height: 10%;
+    width: 30%;
+    z-index: 1000;
+    display: flex;
+    border-radius: 15px 0 0 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.cart_summary button{
+    height: 50%;
+    width: 35%;
+    border-radius: 10px;
+    border: none;
+    background-color: #2a2a2a;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: linear 0.3s;
+    &:hover {
+        transform: scale(1.1);
+        color: #fe8e06;
+    }
+}
+
+.cart_summary .total_price {
+    font-weight: 700;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.footer {
+    top: 100%;
+    position: relative;
 }
