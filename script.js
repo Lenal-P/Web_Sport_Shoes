@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevArrow = document.querySelector('.arrow.prev');
     const nextArrow = document.querySelector('.arrow.next');
 
-    const scrollAmount = 250;
+    const scrollAmount = productImages.offsetWidth * 0.2;
     const scrollAmountMobile = productImages.offsetWidth * 0.5; // 50% của kích thước của .product_images
 
     function handleArrowClick() {
@@ -96,10 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-
     prevArrow.addEventListener('click', handleArrowClick);
     nextArrow.addEventListener('click', handleArrowClick);
 });
-
 /* ---------------------- END CONTENT ---------------------- */
 

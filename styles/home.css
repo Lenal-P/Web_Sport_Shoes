@@ -318,9 +318,10 @@ body{
 .product_item {
     position: relative;
     overflow: hidden;
-    flex: 0 0 calc(20% - 20px);
+    flex: 0 0 calc(20% - 1rem);
     margin-right: 20px;
     cursor: pointer;
+    height: 40vh;
     transition: filter 0.5s;
     &:hover .detail_button{
         transform: translateX(-50%) translateY(0%);
@@ -335,6 +336,8 @@ body{
 }
 .product_nameShoes p {
     font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
     margin: 10px 0;
     color: #666;
     background-color: white;
@@ -342,10 +345,13 @@ body{
 }
 .product_price{
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    bottom: 0;
+    height: 10%;
+    margin: 0 15%;
 }
 .product_price p {
     font-size: 16px;
