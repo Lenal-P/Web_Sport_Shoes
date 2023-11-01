@@ -518,18 +518,8 @@ body{
 } 
   /* ---------------------- END FOOTER ---------------------- */
 
-/* Tablet: width >= 740 and width < 1024px */
-@media only screen and (min-width: 740px) and (max-width: 1024px){
-    
-}
-
 /* Mobile & Tablet */
-@media only screen and (min-width: 1024px){
-
-}
-
-/* Mobile: width <740px*/
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 1024px){
     .header_Menu {
         height: 15vh;
         width: 100vw;
@@ -699,7 +689,19 @@ body{
         top: 40%;
         height: 120vh;
     }
-    /* ------------------ Chia -------------------- */
+    /* ---------------- Footer ---------------- */
+    .footer_container{
+        font-size: 15px;
+        height: 100%;
+    }
+    .footer_container h1 {
+        margin-top: 60px;
+    }
+}
+
+/* Mobile: width <740px*/
+@media only screen and (max-width: 740px) {
+    /* ------------------ Chia content -------------------- */
     .content_hot {
         top: 0;
     }
@@ -757,15 +759,85 @@ body{
         height: 160px;
     }
     .footer {
-        bottom: -170%;
+        bottom: -180%;
+        width: 100vw;
+        height: 35%;
+    }
+}
+/* Tablet: width >= 740 and width < 1024px */
+@media only screen and (min-width: 740px) and (max-width: 1024px){
+    .rps_Search_Box{
+        width: 80%;
+        margin: 0 14%;
+    }
+    /* ------------------ Chia content -------------------- */
+    .content_container{
+        top: 50%;
+    }
+    .content_hot {
+        top: 0;
+    }
+    .content_category{
+        top: 35%;
+        height: auto;
+    }
+    .content_brand{
+        top: 85%;
+        height: 50vh;
+    }
+    .content_position{
+        top: 135%;
+        position: relative;
+        height: 80vh;
+    }
+    /* ------------------------------------------------ */
+    .product_item {
+        flex: 0 0 calc(25% - 1rem);
+        gap: 30px;
+    }
+    .product_images{
+        overflow: hidden;
+    }
+    .arrow_content {
+        top: 45%;
+    }
+    .category_images{
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        height: min-content;
+    }
+    .category_item {
+        width: 90vw;
+        margin-top: 5%;
+        flex-direction: row;
+    }
+    .content_hover {
+        flex: 0 0 50%;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .product_name p {
+        display: none;
+    }
+    .brand_images {
+        width: 90vw;
+        overflow: hidden;
+        height: min-content;
+    }
+    .brand_item {
+        width: 100%;
+        height: min-content;
+    }
+    .brand_item .content_hover {
+        flex: 0 0 100%;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .footer {
+        bottom: -220%;
         width: 100vw;
         height: 30%;
-    }
-    .footer_container{
-        font-size: 15px;
-        height: 120%;
-    }
-    .footer_container h1 {
-        margin-top: 60px;
     }
 }

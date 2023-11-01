@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextArrow = document.querySelector('.arrow.next');
 
     const scrollAmount = 250;
-    const scrollAmountMobile = 324;
+    const scrollAmountMobile = productImages.offsetWidth * 0.5; // 50% của kích thước của .product_images
 
     function handleArrowClick() {
-        let currentScrollAmount = window.innerWidth < 740 ? scrollAmountMobile : scrollAmount;
+        let currentScrollAmount = window.innerWidth < 1366 ? scrollAmountMobile : scrollAmount;
         let scrollDirection = this.classList.contains('prev') ? -currentScrollAmount : currentScrollAmount;
 
         let newPosition = productImages.scrollLeft + scrollDirection;
