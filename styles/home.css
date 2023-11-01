@@ -523,6 +523,11 @@ body{
     
 }
 
+/* Mobile & Tablet */
+@media only screen and (min-width: 1024px){
+
+}
+
 /* Mobile: width <740px*/
 @media only screen and (max-width: 740px) {
     .header_Menu {
@@ -707,7 +712,7 @@ body{
     }
     .content_position{
         top: 130%;
-        height: 90vh;
+        height: auto;
     }
     /* -------------------------------------------- */
     .product_item {
@@ -752,12 +757,13 @@ body{
         height: 160px;
     }
     .footer {
-        bottom: -220%;
+        bottom: -170%;
         width: 100vw;
         height: 30%;
     }
     .footer_container{
         font-size: 15px;
+        height: 120%;
     }
     .footer_container h1 {
         margin-top: 60px;
