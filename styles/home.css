@@ -754,10 +754,9 @@ body{
     .footer {
         bottom: -220%;
         width: 100vw;
-        height: 50%;
+        height: 30%;
     }
     .footer_container{
-        height: 100%;
         font-size: 15px;
     }
     .footer_container h1 {
