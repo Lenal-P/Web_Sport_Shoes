@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/assets/img/veUSHF9.jpg') no-repeat;
+    background: url('/assets/images/veUSHF9.jpg') no-repeat;
     background-size: cover;
 }
 .login_Container{

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <!-- <link rel="stylesheet" href="/SportShoes/Web_Sport_Shoes/product.css"> -->
+    <link rel="stylesheet" href="../styles/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header class="header"></header>
+
+
+
+
+    <section class="product">
+        <div class="container">
+            <div class="product-top row">
+                <p>Trang chủ</p> <span>&#10230; </span> <p>Giày đá bóng</p> <span>&#10230; </span> <p>Hàng mới về</p>
+            </div>
+        </div>
+
+        <div class="product-content row">
+            <div class="product-content-left row">
+
+                <div class="product-content-left-big-img">
+                    <img src="../assets/images/niketiempolegend1.jpg" alt="">
+                </div>
+                <div class="product-content-left-small-img">
+                    <img src="../assets/images/niketiempolegend1.jpg"  onclick="showImg(this.src)" alt="">
+                    <img src="../assets/images/n11.jpg" onclick="showImg(this.src)" alt="">
+                    <img src="../assets/images/n12.jpg" onclick="showImg(this.src)" alt="">
+                    <img src="../assets/images/n13.jpg" onclick="showImg(this.src)" alt="">
+                    <img src="../assets/images/n10.jpg" onclick="showImg(this.src)" alt="">
+                </div>
+
+                
+
+               
+            </div>
+
+            <div class="product-content-right">
+                <div class="product-content-right-product-name">
+                    <h1>NIKE TIEMPO LEGEND 10 ACADEMY MG READY - WHITE/BLACK/BRIGHT CRIMSON</h1>
+                </div>
+
+                <div class="product-content-right-product-price">
+                    <p>2,150,000<sup>đ</sup></p>
+                </div>
+
+                <div class="product-content-right-product-color">
+                    <p><span style="font-weight: bold;">Màu sắc</span>: Màu trằng đỏ <span style="color: red;">*</span></p> 
+                </div>
+
+                <div class="product-content-right-product-color-img">
+                    <img src="../assets/images/trangdo.jpg" width="100%" style="border-radius: 50%;" alt="">
+                </div>
+
+                <div class="product-content-right-product-size">
+                    <p style="font-weight: bold;">Size</p>
+                    <div class="size">
+                        <span>S</span>
+                        <span>M</span>
+                        <span>L</span>
+                        <span>XL</span>
+                        <span>XXL</span>
+
+                    </div>
+                </div>
+
+                <div class="product-content-right-product-quantity">
+                    <p style="font-weight: bold;">Số lượng :</p>
+                    <input type="number" min="1" value="1">
+                </div>
+                <p style="color: red; font-weight: bold;">Vui lòng chọn size</p>
+
+                <div class="product-content-right-product-button">
+                    <button><i class="fas fa-shopping-cart"></i>MUA HÀNG</button>
+                    <button><p>THÊM VÀO GIỎ HÀNG</p></button>
+                </div>
+
+                <div class="product-content-right-product-icon">
+                    <div class="product-content-right-product-icon-item">
+                        <i class="fa-solid fa-phone"></i> <p>Hotline</p>
+                    </div>
+
+                    <div class="product-content-right-product-icon-item">
+                        <i class="fa-regular fa-comment"></i> <p>Chat</p>
+
+                    </div>
+
+                    <div class="product-content-right-product-icon-item">
+                        <i class="fa-regular fa-envelope"></i> <p>Thư</p>
+
+                    </div>
+                </div>
+
+                <!-- <div class="product-content-right-product-QR">
+                    <img src="../assets/images/QR.jpg" alt="">
+                </div> -->
+
+                <div class="product-content-right-bottom">
+                    <div class="product-content-right-bottom-top">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!----------------------------- javascript ---------------------->
+    <script>
+        let bigImg = document.querySelector('.product-content-left-big-img img');
+        function showImg(pic)  {
+            bigImg.src = pic;
+        }
+    </script>
+</body>
+</html>
