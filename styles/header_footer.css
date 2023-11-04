@@ -1,0 +1,567 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    z-index: inherit;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+textarea { 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+body{
+    margin: 80px 0px 0px 0px;
+    z-index: -100000;
+    height: 100%;
+    min-width: 100%;
+}
+/* adjust scrollbar */
+::-webkit-scrollbar-track{
+    position: absolute;
+    background: #2e3338;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: #202225;
+    border-radius: 5px;
+}
+html {
+    height: auto;
+    width: 100%;
+}
+/* ------------------- BEGIN HEADER ------------------- */
+.header_Menu{
+    background-color: #2a2a2a;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    width: 100%;
+    z-index: 100;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.888);
+    white-space: nowrap;
+}
+.header_Menu .menu_Control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    line-height: 500%;
+}
+.header_Menu .menu_List{
+    position: relative;
+    display: inline-block;
+    left: 4vw;
+    margin: 0 20px;
+    height: 100%;
+    cursor: pointer;
+}
+.header_Menu span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: rgba(255, 255, 255, 0.888);
+    margin: 0 20px;
+    height: 100%;
+    cursor: pointer;
+}
+.header_Menu li span{
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
+    color: rgba(255, 255, 255, 0.888);
+}
+.header_Menu .menu_List::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+    background-color: rgb(104, 220, 255);
+}
+.header_Menu li:hover, span:hover {
+    color: rgb(104, 220, 255);
+}
+.header_Menu .menu_List:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.nav_Mobile {
+    display: none;
+}
+/* ----------------- Icon ------------------ */
+.icon_web {
+    position: absolute;
+    height: 100%;
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    left: 3vw;
+}
+.icon_web img {
+    display: block;
+    height: 70px;
+    align-items: center;
+    cursor: pointer;
+}
+.rps_MenuBtn {
+    display: none;
+}
+/* ---------------------- List Content ---------------------- */
+.header_Menu .list_Content {
+    display: none; /* Đặt trạng thái ẩn ban đầu */
+    position: absolute;
+    background-color: #2a2a2a;
+    width: 100%;
+    height: auto;
+    top: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+}
+.header_Menu .menu_List:hover .list_Content {
+    display: flex; /* Khi hover vào mục menu, hiển thị list_Content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.header_Menu .list_Content li {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    width: 100%;
+}
+.header_Menu .list_Content li:hover {
+    color: rgb(104, 220, 255);
+}
+/* ---------------------- Search Box ---------------------- */
+#search_Box{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    background: #fff;
+    border-radius: 15px;
+    margin-top: 1rem;
+    height: max-content;
+}
+.rps_Search_Box{
+    position: relative;;
+    height: 100%;
+    width: 20%;
+    left: -2rem;
+}
+.rps_userAndCart{
+    position: relative;
+    display: flex;
+}
+#search_Box #search_Text {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+#search_Box #search_Btn {
+    border: none;
+    margin: auto;
+    padding: 10px 15px;
+    font-weight: 800;
+    font-size: 14px;
+    transition: color 0.5s;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #111111;
+}
+#search_Box:hover #search_Btn {
+    color: rgb(104, 220, 255);
+}
+/* ---------------------- END HEADER ---------------------- */
+/* ---------------------- BEGIN FOOTER ---------------------- */
+.footer{
+    position: absolute;
+    margin-top: 10%;
+    width: 100%;
+    height: 50%;
+}
+.footer_container{
+    background-color: #111111;
+    border-top: 2px #2e3338 solid;
+    color: #737373;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to bottom, #2a2a2a 50%, #111111 100%);
+    & h1{
+        display: inline-block;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+        cursor: pointer;
+        color: #ffffff;
+        &:hover{
+            color: #ffffff;
+        }
+    }
+    & i{
+        margin: 0 20px;
+        margin-top: 3rem;
+        display: inline-block;
+        cursor: pointer;
+        color: #737373;
+        &:hover{
+            color: rgb(11, 196, 226);
+        }
+    } 
+} 
+/* ---------------------- END FOOTER ---------------------- */
+/* Mobile & Tablet */
+@media only screen and (max-width: 1024px){
+    .header_Menu {
+        height: 15vh;
+        width: 100vw;
+    }
+    .header_Menu .menu_Control {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .rps_MenuBtn {
+        display: flex;
+        position: relative;
+        top: -10%;
+        padding: 10%;
+        left: -40%;
+        z-index: 10000;
+        cursor: pointer;
+        background: none;
+    }
+    .header_Menu .menu_List {
+        display: none;
+    }
+    .icon_web {
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: -1;
+    }
+    .icon_web img {
+        padding: 5%;
+    } 
+    .rps_userAndCart{
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        align-items: flex-end;
+        height: 100%;
+        width: 100%;
+        gap: 10%;
+        padding: 5% 0;
+        font-size: 10px;
+    }
+    .rps_userAndCart span{
+        font-size: 20px;
+    }
+    .rps_Search_Box {
+        display: flex;
+        position: absolute;
+        height: 50%;
+        width: 70%;
+        bottom: 2%;
+        margin: 0 5rem;
+        z-index: 10;
+    }
+    #search_Box {
+        height: max-content;
+        z-index: 1;
+    }
+    #search_Text {
+        width: 100%;
+    }
+    .slideshow_container {
+        top: 15%;
+        width: 100%;
+    }
+    .nav_Overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: 1000;
+        display: none;
+        animation: fadeIn linear 0.2s;
+    }
+    .nav_Mobile {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 250px;
+        max-width: 100%;
+        background-color: #fff;
+        z-index: 1001;
+        transform: translate(-100%);
+        transition: all linear 0.2s;
+        opacity: 0;
+    }
+    .nav_Mobile_List {
+        margin: 70px 0 0 20px;
+    }
+    .nav_Mobile_Link {
+        text-transform: uppercase;
+        color: rgba(30, 30, 30, 0.8);
+        font-size: 14px;
+        width: 100vw;
+    }
+    .nav_Mobile_List li {
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1002;
+    }
+    .nav_Mobile_List hr {
+        margin-top: 5px;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    .nav_Mobile_Link i{
+        color: rgba(0, 0, 0, 0.2);
+        position: fixed;
+        right: 20px;
+        margin-top: 6px;
+    }
+    .nav_Mobile_Close{
+        width: 20px;
+        font-size: 20px;
+        color: #666;
+        position: absolute;
+        top: 0.8rem;
+        right: 1rem;
+    }
+    .nav_Mobile_Menu{
+        background-color: rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding: 20px;
+        font-size: 12px;
+        text-align: center;
+        color: #6666667f;
+        z-index: -1;
+    }
+    .nav_Input:checked ~ .nav_Overlay {
+        display: block;
+    }
+    .nav_Input:checked ~ .nav_Mobile {
+        transform: translate(0%);
+        opacity: 1;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    /* ------------------------------------ */
+    .slideshow_container .list_images {
+        width: 100%;
+    }
+    .control {
+        padding: 5px;
+    }
+    .dots_container {
+        top: 70%;
+    }
+    .dot_control {
+        height: 10px;
+        width: 10px;
+    }
+    .content_container {
+        top: 40%;
+        height: 120vh;
+    }
+    /* ---------------- Footer ---------------- */
+    .footer_container{
+        font-size: 15px;
+        height: 100%;
+    }
+    .footer_container h1 {
+        margin-top: 60px;
+    }
+}
+/* Mobile: width <740px*/
+@media only screen and (max-width: 740px) {
+    /* ------------------ Chia content -------------------- */
+    .content_hot {
+        top: 0;
+    }
+    .content_category{
+        top: 40%;
+        height: 50vh;
+    }
+    .content_brand{
+        top: 80%;
+    }
+    .content_position{
+        top: 130%;
+        height: auto;
+    }
+    /* -------------------------------------------- */
+    .product_item {
+        flex: 0 0 calc(50% - 20px);
+        gap: 30px;
+    }
+    .product_images{
+        overflow: hidden;
+    }
+    .arrow_content {
+        top: 45%;
+    }
+    .category_images{
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        height: min-content;
+    }
+    .category_item {
+        width: 90vw;
+        flex-direction: row;
+    }
+    .content_hover {
+        flex: 0 0 50%;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .product_name p {
+        display: none;
+    }
+    .brand_images {
+        width: 90vw;
+        overflow: hidden;
+        height: min-content;
+    }
+    .brand_item {
+        width: 100%;
+        height: min-content;
+    }
+    .brand_item .content_hover {
+        flex: 0 0 100%;
+        height: 160px;
+    }
+    .footer {
+        bottom: -180%;
+        width: 100vw;
+        height: 35%;
+    }
+}
+/* Tablet: width >= 740 and width < 1024px */
+@media only screen and (min-width: 740px) and (max-width: 1024px){
+    .rps_Search_Box{
+        width: 80%;
+        margin: 0 14%;
+    }
+    /* ------------------ Chia content -------------------- */
+    .content_container{
+        top: 50%;
+    }
+    .content_hot {
+        top: 0;
+    }
+    .content_category{
+        top: 35%;
+        height: auto;
+    }
+    .content_brand{
+        top: 85%;
+        height: 50vh;
+    }
+    .content_position{
+        top: 135%;
+        position: relative;
+        height: 80vh;
+    }
+    /* ------------------------------------------------ */
+    .product_item {
+        flex: 0 0 calc(25% - 1rem);
+        gap: 30px;
+    }
+    .product_images{
+        overflow: hidden;
+    }
+    .arrow_content {
+        top: 45%;
+    }
+    .category_images{
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        height: min-content;
+    }
+    .category_item {
+        width: 90vw;
+        margin-top: 5%;
+        flex-direction: row;
+    }
+    .content_hover {
+        flex: 0 0 50%;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .product_name p {
+        display: none;
+    }
+    .brand_images {
+        width: 90vw;
+        overflow: hidden;
+        height: min-content;
+    }
+    .brand_item {
+        width: 100%;
+        height: min-content;
+    }
+    .brand_item .content_hover {
+        flex: 0 0 100%;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .footer {
+        bottom: -220%;
+        width: 100vw;
+        height: 30%;
+    }
+}
